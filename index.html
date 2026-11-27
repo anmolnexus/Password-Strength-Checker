@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080d19">
+<title>NEXUS SHIELD | Password Security</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+:root{--bg:#080d19;--panel:#121c30;--muted:#8995ad;--line:#293750;--purple:#a68bff;--blue:#48b9ff;--green:#55ddaa;--red:#ff8998;--amber:#f6b84b}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:#f3f5fc;font-family:'DM Sans',sans-serif;background:radial-gradient(ellipse at 10% 0%,rgba(88,65,190,.17),transparent 35%),radial-gradient(ellipse at 90% 20%,rgba(0,150,255,.11),transparent 35%),var(--bg)}
+main{width:min(1120px,92%);margin:auto;padding:34px 0 55px}
+.brand{display:flex;align-items:center;gap:13px;margin-bottom:45px}
+.brand-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(135deg,#7047ea,#168bff);font-size:25px;box-shadow:0 5px 25px #5359ff4d}
+.brand-name{font:700 23px 'Space Grotesk';letter-spacing:1px}.brand-sub{font-size:10px;color:var(--muted);letter-spacing:2px;margin-top:3px}
+.hero{animation:appear .7s ease}.eyebrow{display:inline-block;padding:7px 13px;border:1px solid #7b64ff55;border-radius:30px;background:#694fff17;color:#b5a7ff;font-size:11px;letter-spacing:1.5px;font-weight:700}
+h1{font:700 clamp(38px,6vw,61px)/1.1 'Space Grotesk';margin:22px 0 14px;letter-spacing:-1.8px}.gradient{background:linear-gradient(90deg,#a68bff,#48b9ff);background-clip:text;-webkit-background-clip:text;color:transparent}
+.hero p{color:var(--muted);font-size:15px;line-height:1.8;max-width:620px;margin:0}
+.layout{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;margin-top:38px}
+.panel{background:linear-gradient(145deg,#182036f0,#0e1525f5);border:1px solid #8b9dc01f;border-radius:19px;padding:25px;box-shadow:0 12px 35px #0002;transition:.25s ease}
+.panel:hover{border-color:#757eff66;transform:translateY(-2px)}
+.panel-title{font:600 17px 'Space Grotesk';margin-bottom:8px}.description{font-size:12px;color:var(--muted);margin-bottom:22px;line-height:1.6}
+label{display:block;font-size:12px;color:#c4cce0;margin:20px 0 9px}
+.input-wrap{display:flex;gap:8px}.input-wrap input{flex:1;min-width:0;background:#0a1121;border:1px solid #28344e;border-radius:11px;color:white;padding:15px;font:14px 'DM Sans';outline:none}
+.input-wrap input:focus{border-color:#8870ff;box-shadow:0 0 0 3px #8870ff20}
+button{border:0;border-radius:11px;padding:0 16px;background:#202b43;color:#e9eaff;font-weight:700;cursor:pointer;transition:.2s}
+button:hover{filter:brightness(1.2);transform:translateY(-1px)}
+.primary{width:100%;height:48px;margin-top:14px;background:linear-gradient(100deg,#754bea,#247dfa);font-size:14px}
+.note{color:#78859e;font-size:11px;line-height:1.6;margin-top:13px}
+.feature{background:#10192b;border:1px solid #26344e;padding:17px;border-radius:14px;margin:12px 0}
+.feature-num{color:#a18dff;font-size:11px}.feature-title{font-weight:600;margin-top:5px}.feature-desc{font-size:12px;color:var(--muted);margin-top:5px;line-height:1.5}
+.result{margin-top:22px;display:none;animation:appear .45s ease}.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:15px}
+.metric{background:#10192b;border:1px solid #26344e;padding:18px;border-radius:14px}
+.metric-label{font-size:10px;color:var(--muted);letter-spacing:1px}.metric-value{font:700 24px 'Space Grotesk';margin-top:8px}
+.bar{height:8px;background:#25314a;border-radius:20px;overflow:hidden;margin:15px 0 9px}.fill{height:100%;width:0;transition:width .7s ease;border-radius:20px}
+.small{font-size:12px;color:var(--muted);line-height:1.6}
+.result-lists{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.check,.suggestion{padding:11px 12px;border-radius:10px;background:#ffffff08;border:1px solid #ffffff12;margin:8px 0;font-size:12px}
+.good{color:var(--green)}.bad{color:var(--red)}.warn{color:var(--amber)}
+.footer{text-align:center;color:#64718a;font-size:11px;padding-top:48px;letter-spacing:1px;line-height:2}
+.developer{display:inline-block;color:#b8a8ff;font:800 italic 17px 'Space Grotesk';letter-spacing:1px}
+@keyframes appear{from{opacity:0;transform:translateY(13px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:760px){.layout{grid-template-columns:1fr}.result-grid,.result-lists{grid-template-columns:1fr}main{padding-top:24px}.panel{padding:20px}h1{font-size:42px}}
+</style>
+</head>
+<body>
+<main>
+  <header class="brand">
+    <div class="brand-icon">🛡️</div>
+    <div><div class="brand-name">NEXUS SHIELD</div><div class="brand-sub">PERSONAL SECURITY LAB</div></div>
+  </header>
+
+  <section class="hero">
+    <span class="eyebrow">● PASSWORD SECURITY ANALYZER</span>
+    <h1>Make your passwords<br><span class="gradient">hard to break.</span></h1>
+    <p>Understand password security through a simple local analysis, strength estimate and practical recommendations. Your password is checked in this browser and is not sent to a server.</p>
+  </section>
+
+  <section class="layout">
+    <div class="panel">
+      <div class="panel-title">🔐 Password inspection</div>
+      <div class="description">Enter a sample password to evaluate its security characteristics.</div>
+      <label for="password">Your password</label>
+      <div class="input-wrap">
+        <input id="password" type="password" placeholder="Enter a sample password..." autocomplete="off" spellcheck="false">
+        <button id="toggle" type="button" aria-label="Show password">Show</button>
+      </div>
+      <button class="primary" id="analyze" type="button">Analyze password&nbsp; →</button>
+      <div class="note">For your safety, do not enter a password you currently use for email, banking or any important account. The password stays in this page and is not saved.</div>
+      <div class="result" id="result" aria-live="polite">
+        <div class="panel-title" style="margin-top:25px">Security analysis report</div>
+        <div class="result-grid">
+          <div class="metric">
+            <div class="metric-label">PASSWORD STRENGTH</div>
+            <div class="metric-value" id="strength">—</div>
+            <div class="bar"><div class="fill" id="fill"></div></div>
+            <div class="small">Security score: <strong id="score">0</strong>/100</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">ESTIMATED ENTROPY</div>
+            <div class="metric-value" id="entropy">— bits</div>
+            <div class="small">Approximate theoretical character-space estimate, not a guarantee of crack time.</div>
+          </div>
+        </div>
+        <div class="result-lists">
+          <div class="metric"><div class="panel-title">Composition analysis</div><div class="description">Password security characteristics</div><div id="checks"></div></div>
+          <div class="metric"><div class="panel-title">Security recommendations</div><div class="description">Ways to improve your password</div><div id="suggestions"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="panel">
+      <div class="panel-title">📡 Security overview</div>
+      <div class="description">What makes a password more resilient?</div>
+      <div class="feature"><span class="feature-num">01</span><div class="feature-title">Length matters</div><div class="feature-desc">Longer passwords are generally harder to guess.</div></div>
+      <div class="feature"><span class="feature-num">02</span><div class="feature-title">Character diversity</div><div class="feature-desc">A mix of letters, numbers and symbols can increase the search space.</div></div>
+      <div class="feature"><span class="feature-num">03</span><div class="feature-title">Avoid patterns</div><div class="feature-desc">Predictable sequences and repeated characters reduce security.</div></div>
+      <div class="feature"><span class="feature-num">04</span><div class="feature-title">Stay unique</div><div class="feature-desc">Never reuse passwords across different accounts.</div></div>
+    </aside>
+  </section>
+
+  <footer class="footer">
+    NEXUS SHIELD &nbsp; • &nbsp; BUILT FOR A SAFER DIGITAL WORLD<br><br>
+    EDUCATIONAL SECURITY TOOL | VERSION 1.0<br><br>
+    <strong class="developer">Anmol Pandey</strong>
+  </footer>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+const common = new Set(["password","123456","12345678","qwerty","admin","welcome","letmein","password123","admin123"]);
+function analyzePassword(p){
+  const checks = {
+    "Length (12+ characters)": p.length >= 12,
+    "Uppercase letters": /[A-Z]/.test(p),
+    "Lowercase letters": /[a-z]/.test(p),
+    "Numbers": /[0-9]/.test(p),
+    "Special characters": /[^a-zA-Z0-9]/.test(p)
+  };
+  let score = Object.values(checks).filter(Boolean).length * 20;
+  const suggestions = [];
+  if(p.length < 12) suggestions.push("Use at least 12 characters; longer passphrases are usually better.");
+  if(!checks["Uppercase letters"]) suggestions.push("Consider adding uppercase letters (A–Z).");
+  if(!checks["Lowercase letters"]) suggestions.push("Include lowercase letters (a–z).");
+  if(!checks["Numbers"]) suggestions.push("Include numbers (0–9), if they fit naturally.");
+  if(!checks["Special characters"]) suggestions.push("Consider adding a special character such as @, # or !.");
+  if(common.has(p.toLowerCase())){score=0;suggestions.push("Avoid commonly used passwords.");}
+  if(/(.)\1{2,}/.test(p)){score=Math.max(0,score-15);suggestions.push("Avoid repeating the same character several times.");}
+  if(/1234|abcd|qwerty/i.test(p)){score=Math.max(0,score-15);suggestions.push("Avoid predictable sequences such as 1234 or abcd.");}
+  score=Math.max(0,Math.min(100,score));
+  let strength, color;
+  if(score<40){strength="Weak";color="#ff657a";}
+  else if(score<80){strength="Moderate";color="#f6b84b";}
+  else{strength="Strong";color="#36d6a0";}
+  const pool=(checks["Lowercase letters"]?26:0)+(checks["Uppercase letters"]?26:0)+(checks["Numbers"]?10:0)+(checks["Special characters"]?32:0);
+  const entropy=pool>1?Math.round(p.length*Math.log2(pool)*10)/10:0;
+  return {checks,suggestions,score,strength,color,entropy};
+}
+function runAnalysis(){
+  const p=$("password").value;
+  if(!p){$("password").focus();$("password").setCustomValidity("Please enter a sample password first.");$("password").reportValidity();return;}
+  $("password").setCustomValidity("");
+  const r=analyzePassword(p);
+  $("result").style.display="block";
+  $("strength").textContent=r.strength;
+  $("strength").style.color=r.color;
+  $("score").textContent=r.score;
+  $("fill").style.width=r.score+"%";
+  $("fill").style.background=r.color;
+  $("entropy").textContent=r.entropy+" bits";
+  $("checks").innerHTML=Object.entries(r.checks).map(([k,v])=>`<div class="check"><span class="${v?'good':'bad'}">${v?'✓':'✕'}</span>&nbsp; ${k}</div>`).join("");
+  $("suggestions").innerHTML=r.suggestions.length?r.suggestions.map(s=>`<div class="suggestion"><span class="warn">→</span>&nbsp; ${s}</div>`).join(""):'<div class="check good">✓ All basic checks passed.</div><div class="suggestion">Use a unique password generated by a trusted password manager.</div>';
+  $("result").scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+$("analyze").addEventListener("click",runAnalysis);
+$("password").addEventListener("keydown",e=>{if(e.key==="Enter")runAnalysis();});
+$("toggle").addEventListener("click",()=>{const input=$("password");const show=input.type==="password";input.type=show?"text":"password";$("toggle").textContent=show?"Hide":"Show";$("toggle").setAttribute("aria-label",show?"Hide password":"Show password");});
+</script>
+</body>
+</html>
